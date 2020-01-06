@@ -1,0 +1,78 @@
+{% set page_name="Details Page" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container" style="text-align:center;">
+    {% if users|count > 0 %}
+    <p><h1>Verify your details</h1></p>
+    <div class="row">
+        <div class="col-md-12 col-lg-6 offset-lg-3">
+            <table class="table">
+               <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Cost</th>
+                    <!--<th>Discount Note</th>-->
+                </tr>
+                {%- for user in users %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.amount }}</td>
+                        <!--<td>{{ user.discountNotes }}</td>-->
+                    </tr>
+                {%- endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-6 offset-lg-3">
+            <table class="table">
+               <tr>
+                    <th>Address</th>
+                    <!--<th>Batch</th>-->
+                    <th>Total Cost</th>
+                </tr>
+
+                <tr>
+                    <td>{{ order.address }},{{ order.pincode }}</td>
+                    <!--<td>{{ order.batch }}</td>-->
+                    <td>Rs.{{ order.amount/100 }}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-3 col-6">
+            <a class="btn btn-usual" href="/register/course1/{{order.orderId}}">Back</a>
+        </div>
+        <div class="col-md-3 col-6">
+            <form action="/charge" method="POST">
+            <!-- Note that the amount is in paise = 50 INR -->
+                <script
+                    src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="{{config.RAZOR_ID}}"
+                    data-amount="{{order.amount}}"
+                    data-buttontext="Pay"
+                    data-name="The School of AI"
+                    data-description="User Registration"
+                    data-image="/static/img/Logo.png"
+                    data-prefill.name="{{ users[0].name }}"
+                    data-prefill.contact="{{users[0].phone}}"
+                    data-prefill.email="{{ users[0].email }}"
+                    data-theme.color="#F37254"
+                    data-order_id="{{ order.orderId }}"
+                ></script>
+            </form>
+        </div>
+    </div>
+
+    {% else %}
+    <h3 class=lead>Please register users</h3>
+    {% endif %}
+    <br/><br/>
+</div>
+{% endblock %}

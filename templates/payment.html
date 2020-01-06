@@ -1,0 +1,59 @@
+{% set page_name="Payment Status" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    {% if paymentInfo.status == 'captured' %}
+
+    <div class="row">
+        <div class="col-md-12 col-lg-8 offset-lg-2 centered">
+            <p><h3>Thank you for your payment to "The School Of AI"</h3></p>
+            <table width="50%" >
+                <tr><td >Amount</td><td>Rs.{{paymentInfo.amount / config.PAISE_CONVERSION }} </td></tr>
+                <tr><td>Order Id</td><td>{{paymentInfo.order_id}}</td></tr>
+                <tr><td>Payment Id</td><td>{{paymentInfo.id}}</td></tr>
+            </table>
+            <p><input id="paymentLink" value="{{request.url_root}}status/{{paymentInfo.id}}"/><button onclick="copyToClipboard('paymentLink')"><i class="fa fa-copy"></i></button></p>
+        </div>
+    </div>
+
+    {% elif paymentInfo.status == 'failed' %}
+        <div class="row">
+            <div class="col-md-12 col-lg-8 offset-lg-2 centered">
+                <p><h3>Sorry, your payment status is Failed</h3></p>
+                <table width="50%" >
+                    <tr><td >Amount</td><td>Rs.{{paymentInfo.amount / config.PAISE_CONVERSION }}</td></tr>
+                    <tr><td>Order Id</td><td>{{paymentInfo.order_id}}</td></tr>
+                    <tr><td>Payment Id</td><td>{{paymentInfo.id}}</td></tr>
+                </table>
+                <p>Please try again <a href="/summary/{{order.orderId}}">here</a></p>
+            </div>
+        </div>
+    {% elif paymentInfo.status == 'refunded' %}
+        <div class="row">
+            <div class="col-md-12 col-lg-8 offset-lg-2 centered">
+                <table width="50%" >
+                    <tr><td >Amount</td><td>Rs.{{paymentInfo.amount / config.PAISE_CONVERSION }}</td></tr>
+                    <tr><td>Refunded Amount</td><td>Rs.{{paymentInfo.amount_refunded / config.PAISE_CONVERSION }}</td></tr>
+                    <tr><td>Order Id</td><td>{{paymentInfo.order_id}}</td></tr>
+                    <tr><td>Payment Id</td><td>{{paymentInfo.id}}</td></tr>
+                </table>
+                <p>Please try again <a href="/summary/{{order.orderId}}">here</a></p>
+            </div>
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col-md-12 col-lg-8 offset-lg-2 centered">
+                <p><h1>Your payment status Uncleared</h1></p><!-- status may be created or authorized -->
+                <p>Please refresh this page or click <a href="/status/{{paymentInfo.id}}">here</a></p>
+                <table width="50%" >
+                    <tr><td >Amount</td><td>Rs.{{paymentInfo.amount / config.PAISE_CONVERSION }}</td></tr>
+                    <tr><td>Order Id</td><td>{{paymentInfo.order_id}}</td></tr>
+                    <tr><td>Payment Id</td><td>{{paymentInfo.id}}</td></tr>
+                </table>
+                <p><input id="paymentLink" value="{{request.url_root}}status/{{paymentInfo.id}}"/><button onclick="copyToClipboard('paymentLink')"><i class="fa fa-copy"></i></button></p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

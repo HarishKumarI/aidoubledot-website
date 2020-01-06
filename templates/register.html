@@ -1,0 +1,168 @@
+{% set page_name="Course Register" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+    <section id="contact" class="wow fadeInUp">
+
+<div class="container">
+    <div class="form">
+        <div id="sendmessage">
+            <b>Thank you for pre-registering.</b><br/></br>
+            We will contact you with the payment information. Your registration will be confirmed subject to the realisation of the payment
+        </div>
+        <div id="errormessage">Registration already done with this email/phone. Please verify</div>
+        <div id="clientvalidate">Please check all fields and submit again</div>
+        <form action="{{submitUrl}}" method="post" role="form" class="register" id="register-form">
+            <input type="hidden" name="courseId" value="{{courseId}}"/>
+            <div class="sectional-box profile-box">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <h3>Personal Details</h3>
+                        <input type="hidden" name="user_index" value="0" />
+                        <input type="hidden" name="userId" value="{{users[0].id}}"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="text" name="name" class="form-control" id="name"
+                               placeholder="Your Name *" data-rule="minlen:4"
+                               data-msg="Please enter at least 4 chars" autocomplete="off" value="{{users[0].name}}">
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" class="form-control" name="phone" id="phone"
+                               placeholder="Phone *" data-rule="minlen:10"
+                               data-msg="Please enter at least 10 digits" autocomplete="off" value="{{users[0].phone}}">
+                        <div class="validation"></div>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <input type="email" class="form-control" name="email" id="email"
+                               placeholder="Your Email *" data-rule="email" value="{{users[0].email}}"
+                               data-msg="Please enter a valid email" autocomplete="off">
+                        <div class="validation"></div>
+                    </div>
+                </div>
+                <div class="input_fields_wrap">
+                    {% if users|count > 1 %}
+                        {%- for user in users %}
+                            {% if loop.index > 0 %}
+                                <div class="form-row sectional-box">
+                                    <input type="hidden" name="user_index" value="{{ loop.index + 1 }}" />
+                                    <input type="hidden" name="userId" value="{{ users.id }}"/>
+                                     <div class="form-group col-md-4">
+                                         <input type="text" name="name" class="form-control" id="name"
+                                                placeholder="Your Name" data-rule="minlen:4"  value="{{ users.name }}"
+                                                data-msg="Please enter at least 4 chars" autocomplete="off">
+                                         <div class="validation"></div>
+                                     </div>
+                                     <div class="form-group col-md-3">
+                                         <input type="text" class="form-control" name="phone" id="phone"
+                                                placeholder="Phone" data-rule="minlen:10" value="{{ users.phone }}"
+                                                data-msg="Please enter at least 10 digits" autocomplete="off">
+                                         <div class="validation"></div>
+                                     </div>
+                                     <div class="form-group col-md-4">
+                                         <input type="email" class="form-control" name="email" id="email"
+                                                placeholder="Your Email" data-rule="email" value="{{ users.email }}"
+                                                data-msg="Please enter a valid email" autocomplete="off">
+                                         <div class="validation"></div>
+                                     </div>
+                                     <div class="form-group col-md-1">
+                                         <button class="pull-right btn btn-info" onclick="removeThese(this, event)">-</button>
+                                     </div>
+                                 </div>
+                            {% endif %}
+                        {%- endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <!--<div class="form-row">
+                <div class="form-group col-md-12">
+                    <button class="pull-right btn btn-primary add_field_button">+</button>
+                </div>
+            </div>-->
+            <div class="form-row">
+                <!--<div class="form-group col-md-12">
+                    <h3>Batch preference for in-person sessions</h3>
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="radio"  name="batch" id="batch1" value="batch1" checked/>
+                    <div class="validation"></div>
+                    &nbsp;Batch 1: Saturdays (9:00 am to 5:00 pm)<br/>
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="radio"  name="batch" id="batch2" value="batch2"/>
+                    <div class="validation"></div>
+                    &nbsp;Batch 2: Sundays (9:00 am to 5:00 pm)<br/>
+                    <br/>
+                </div>-->
+                <input type="hidden" name="batch" id="batch2" value="batch2"/>
+            </div>
+            <div class="form-row sectional-box">
+                <div class="form-group col-md-12"><h3>Address</h3></div>
+                <div class="form-group col-md-8">
+                        <input class="form-control" name="address" data-rule="minlen:10" value="{{order.address}}"
+                               data-msg="Please enter postal address" placeholder="Postal address for invoice *"/>
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group col-md-4">
+                    <input class="form-control" name="pincode" data-rule="regexp:^[1-9][0-9]{5}$" value="{{order.pincode}}"
+                           data-msg="Please enter valid pincode" placeholder="Pincode for invoice *"/>
+                    <div class="validation"></div>
+                </div>
+            </div>
+            <div class="sectional-box">
+                <div class="form-group"><h3>Other Details</h3></div>
+                <div class="form-group">
+                    <input class="form-control" name="fromReference"
+                           data-msg="Please enter reference" value="{{order.fromReference}}"
+                           placeholder="How did you come to know about us/ Email id of the person who referred you"/>
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    Refer friends and earn 2% on each, a cash back on course fee **
+                    <input class="form-control" name="toReference"
+                              data-msg="Please enter reference" value="{{order.toReference}}"
+                           placeholder="Enter email id or multiple email ids separated by , (comma)"/>
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                                        <textarea class="form-control" name="message" rows="2"
+                                                  data-msg="Ask us if you want to know anything specific" placeholder="Ask us if you want to know anything specific">{{order.message}}</textarea>
+                    <div class="validation"></div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <input type="checkbox"  data-msg="Please check TnC" name="tnc" class="form-control" checked data-rule="checked">
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group col-md-11">
+                    I have read and agreed to the <a href="/tnc" class="terms" target="_blank">Terms of Use </a>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-1">
+                    <input type="checkbox"  data-msg="Please check refund terms" name="refundPolicy" checked  class="form-control" data-rule="checked">
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group col-md-11">
+                    I have read and agreed to the <a href="javascript:void(0)" data-html="true"   data-container="body" data-toggle="popover" data-trigger="hover" data-content="At The School of AI, our motive is not just to teach you. We want to ensure that you learn better. Hence, we would like to guarantee full refund of the course fee (after deducting the payment gateway charges) if you would like to discontinue after first 2 sessions. The refund will be according to the following terms.<br/><ol><li>Fees paid through the payment gateway shall be refunded through the same channel after deducting the applicable payment gateway charges.</li><li>The Candidate will have to make an application for refund along with the transaction number and original payment receipt if any generated at the time of making payments</li><li>The application should be sent to neha@theschoolofai.com</li><li>The application will be processed manually and the amount will be refunded through electronic mode in favour of the applicant. A confirmation will be sent to the mailing address given in the online registration form, within a period of 7-10 calendar days on receipt of such claim.</li></ol>">Refund Policy</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="submit">Next</button>
+                </div>
+                <!--<button
+                class="g-recaptcha"
+                data-sitekey="6LdDhFEUAAAAAMTp_DMLDJ-N8MyAp9HBxLFC1Ajp"
+                data-callback="contactFormSubmit">
+                Submit
+                </button>-->
+                * &nbsp;&nbsp;Required fields<br/>
+                **&nbsp;Cash back is given on conversion only
+            </div>
+        </form>
+    </div>
+</div>
+    </section>
+{% endblock %}

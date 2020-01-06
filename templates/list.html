@@ -1,0 +1,38 @@
+{% set page_name="Pre-registered list" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+            {% if users|count > 0 %}
+            <h3 class="lead">Pre-Registered Users</h3>
+            <table class="table" border="1px">
+               <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Batch</th>
+                    <th>Postal Address</th>
+                    <th>Reference From</th>
+                    <th>Reference To</th>
+                    <th>Message</th>
+                    <th>Creation Date</th>
+                </tr>
+                {%- for user in users %}
+                    <tr>
+                        <td> {{ user.id }} </td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.batch }}</td>
+                        <td>{{ user.address }}</td>
+                        <td>{{ user.fromReference }}</td>
+                        <td>{{ user.toReference }}</td>
+                        <td>{{ user.message }}</td>
+                        <td>{{ user.creation_date }}</td>
+                    </tr>
+                {%- endfor %}
+            </table>
+            {% else %}
+            <h3 class=lead>Please register users</h3>
+            {% endif %}
+{% endblock %}
