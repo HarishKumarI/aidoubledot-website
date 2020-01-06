@@ -56,6 +56,10 @@ def tnc():
 def home():
     return render_template('index.html')
 
+@app.route('/Blog')
+def blog():
+    return render_template('./Blog/index.html')
+
 
 @app.errorhandler(Exception)
 def exceptions(e):
