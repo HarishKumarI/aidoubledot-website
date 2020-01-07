@@ -62,7 +62,7 @@ def blog():
 
 @app.route('/Blog/')
 def blog1():
-    return render_template('./blog/index.html')
+    return render_template('./Blog/index.html')
 
 
 @app.errorhandler(Exception)
