@@ -58,7 +58,11 @@ def home():
 
 @app.route('/Blog')
 def blog():
-    return render_template('./Blog/index.html')
+    return redirect('/Blog/')
+
+@app.route('/Blog/')
+def blog1():
+    return render_template('./blog/index.html')
 
 
 @app.errorhandler(Exception)
