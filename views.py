@@ -64,7 +64,6 @@ def blog():
 def blog1():
     return render_template('./Blog/index.html')
 
-
 @app.errorhandler(Exception)
 def exceptions(e):
     """ Logging after every Exception. """
