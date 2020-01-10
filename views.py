@@ -64,6 +64,11 @@ def blog():
 def blog1():
     return render_template('./Blog/index.html')
 
+@app.route('/Blog/<filename>')
+def article(filename):
+  # print(filename)
+  return render_template('./Blog/'+filename+'/index.html')
+
 @app.errorhandler(Exception)
 def exceptions(e):
     """ Logging after every Exception. """

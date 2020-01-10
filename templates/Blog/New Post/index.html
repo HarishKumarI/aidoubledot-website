@@ -6,7 +6,7 @@
             <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="theme-color" content="#000000" />
-            <meta name="Description" content="Article cover testing" /> 
+            <meta name="Description" content="Article Description" /> 
             <meta
               name="description"
               content="aidouble dot blog"
@@ -101,6 +101,7 @@
                     width: 100%;
                     height: auto;
                 }
+
              </style>
 
           </head>
@@ -140,24 +141,22 @@
           </nav>
 
              <div class="coverimage"> 
-              <img class="" alt="cover image" src="./coverImages/New Post.png" />
+              <img  alt="cover_image" src="./coverImages/New Post.png" />
             </div>
             
-            <div class="container" style="padding:10%;">
+            <div className="container" style="padding:10%;">
                <hr />
-<p><strong>Advertisement :)</strong></p>
+<p><strong>Advertisement&nbsp;<img alt="😃" src="https://twemoji.maxcdn.com/36x36/1f603.png" /></strong></p>
 
 <ul>
-	<li><strong><a href="https://nodeca.github.io/pica/demo/">pica</a></strong> - high quality and fast image<br />
-	&nbsp; resize in browser.</li>
-	<li><strong><a href="https://github.com/nodeca/babelfish/">babelfish</a></strong> - developer friendly<br />
-	&nbsp; i18n with plurals support and easy syntax.</li>
+	<li><strong><a href="https://nodeca.github.io/pica/demo/">pica</a></strong>&nbsp;- high quality and fast image resize in browser.</li>
+	<li><strong><a href="https://github.com/nodeca/babelfish/">babelfish</a></strong>&nbsp;- developer friendly i18n with plurals support and easy syntax.</li>
 </ul>
 
 <p>You will like those projects!</p>
 
 <hr />
-<h1>h1 Heading 8-)</h1>
+<h1>h1 Heading&nbsp;<img alt="😎" src="https://twemoji.maxcdn.com/36x36/1f60e.png" /></h1>
 
 <h2>h2 Heading</h2>
 
@@ -182,7 +181,7 @@
 
 <p>test&hellip; test&hellip; test&hellip; test?.. test!..</p>
 
-<p>!!! ??? , &nbsp;&ndash; &mdash;</p>
+<p>!!! ??? , &ndash; &mdash;</p>
 
 <p>&ldquo;Smartypants, double quotes&rdquo; and &lsquo;single quotes&rsquo;</p>
 
@@ -217,12 +216,24 @@
 <p>Unordered</p>
 
 <ul>
-	<li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li>
-	<li>Sub-lists are made by indenting 2 spaces:<br />
-	&nbsp; - Marker character change forces new list start:<br />
-	&nbsp; &nbsp; * Ac tristique libero volutpat at<br />
-	&nbsp; &nbsp; + Facilisis in pretium nisl aliquet<br />
-	&nbsp; &nbsp; - Nulla volutpat aliquam velit</li>
+	<li>Create a list by starting a line with&nbsp;<code>+</code>,&nbsp;<code>-</code>, or&nbsp;<code>*</code></li>
+	<li>Sub-lists are made by indenting 2 spaces:
+	<ul>
+		<li>Marker character change forces new list start:
+		<ul>
+			<li>Ac tristique libero volutpat at</li>
+		</ul>
+
+		<ul>
+			<li>Facilisis in pretium nisl aliquet</li>
+		</ul>
+
+		<ul>
+			<li>Nulla volutpat aliquam velit</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
 	<li>Very easy!</li>
 </ul>
 
@@ -242,7 +253,7 @@
 	<p>You can use sequential numbers&hellip;</p>
 	</li>
 	<li>
-	<p>&hellip;or keep all the numbers as <code>1.</code></p>
+	<p>&hellip;or keep all the numbers as&nbsp;<code>1.</code></p>
 	</li>
 </ol>
 
@@ -255,14 +266,16 @@
 
 <h2>Code</h2>
 
-<p>Inline <code>code</code></p>
+<p>Inline&nbsp;<code>code</code></p>
 
 <p>Indented code</p>
 
-<p>// Some comments<br />
-&nbsp; &nbsp; line 1 of code<br />
-&nbsp; &nbsp; line 2 of code<br />
-&nbsp; &nbsp; line 3 of code</p>
+<pre>
+<code>// Some comments
+line 1 of code
+line 2 of code
+line 3 of code
+</code></pre>
 
 <p>Block code &ldquo;fences&rdquo;</p>
 
@@ -274,7 +287,7 @@
 
 <pre>
 <code>var foo = function (bar) {
-&nbsp; return bar++;
+  return bar++;
 };
 
 console.log(foo(5));
@@ -310,130 +323,135 @@ console.log(foo(5));
 <table>
 	<thead>
 		<tr>
-			<th style="text-align:right">Option</th>
-			<th style="text-align:right">Description</th>
+			<th>Option</th>
+			<th>Description</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td style="text-align:right">data</td>
-			<td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
+			<td>data</td>
+			<td>path to data files to supply the data that will be passed into templates.</td>
 		</tr>
 		<tr>
-			<td style="text-align:right">engine</td>
-			<td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
+			<td>engine</td>
+			<td>engine to be used for processing templates. Handlebars is the default.</td>
 		</tr>
 		<tr>
-			<td style="text-align:right">ext</td>
-			<td style="text-align:right">extension to be used for dest files.</td>
+			<td>ext</td>
+			<td>extension to be used for dest files.</td>
 		</tr>
 	</tbody>
 </table>
 
 <h2>Links</h2>
 
-<p><a href="http://dev.nodeca.com">link text</a></p>
+<p><a href="http://dev.nodeca.com/">link text</a></p>
 
 <p><a href="http://nodeca.github.io/pica/demo/" title="title text!">link with title</a></p>
 
-<p>Autoconverted link <a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
+<p>Autoconverted link&nbsp;<a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a>&nbsp;(enable linkify to see)</p>
 
 <h2>Images</h2>
 
-<p><img alt="Minion" src="https://octodex.github.com/images/minion.png" style="height:60px; width:60px" /><br />
-<img alt="Stormtroopocat" src="https://octodex.github.com/images/stormtroopocat.jpg" style="height:58px; width:60px" title="The Stormtroopocat" /></p>
+<p><img alt="Minion" src="https://octodex.github.com/images/minion.png" />&nbsp;<img alt="Stormtroopocat" src="https://octodex.github.com/images/stormtroopocat.jpg" title="The Stormtroopocat" /></p>
 
 <p>Like links, Images also have a footnote style syntax</p>
 
-<p>![Alt text][id]</p>
+<p><img alt="Alt text" src="https://octodex.github.com/images/dojocat.jpg" title="The Dojocat" /></p>
 
 <p>With a reference later in the document defining the URL location:</p>
 
-<p>[id]: <a href="https://octodex.github.com/images/dojocat.jpg">https://octodex.github.com/images/dojocat.jpg</a> &nbsp;&ldquo;The Dojocat&rdquo;</p>
-
 <h2>Plugins</h2>
 
-<p>The killer feature of <code>markdown-it</code> is very effective support of<br />
-<a href="https://www.npmjs.org/browse/keyword/markdown-it-plugin">syntax plugins</a>.</p>
+<p>The killer feature of&nbsp;<code>markdown-it</code>&nbsp;is very effective support of&nbsp;<a href="https://www.npmjs.org/browse/keyword/markdown-it-plugin">syntax plugins</a>.</p>
 
 <h3><a href="https://github.com/markdown-it/markdown-it-emoji">Emojies</a></h3>
 
 <blockquote>
-<p>Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:</p>
+<p>Classic markup:&nbsp;<img alt="😉" src="https://twemoji.maxcdn.com/36x36/1f609.png" />&nbsp;:crush:&nbsp;<img alt="😢" src="https://twemoji.maxcdn.com/36x36/1f622.png" />&nbsp;:tear:&nbsp;<img alt="😆" src="https://twemoji.maxcdn.com/36x36/1f606.png" />&nbsp;<img alt="😋" src="https://twemoji.maxcdn.com/36x36/1f60b.png" /></p>
 
-<p>Shortcuts (emoticons): :-) :-( 8-) ;)</p>
+<p>Shortcuts (emoticons):&nbsp;<img alt="😃" src="https://twemoji.maxcdn.com/36x36/1f603.png" />&nbsp;<img alt="😦" src="https://twemoji.maxcdn.com/36x36/1f626.png" />&nbsp;<img alt="😎" src="https://twemoji.maxcdn.com/36x36/1f60e.png" />&nbsp;<img alt="😉" src="https://twemoji.maxcdn.com/36x36/1f609.png" /></p>
 </blockquote>
 
-<p>see <a href="https://github.com/markdown-it/markdown-it-emoji#change-output">how to change output</a> with twemoji.</p>
+<p>see&nbsp;<a href="https://github.com/markdown-it/markdown-it-emoji#change-output">how to change output</a>&nbsp;with twemoji.</p>
 
-<h3><a href="https://github.com/markdown-it/markdown-it-sub">Subscript</a> / <a href="https://github.com/markdown-it/markdown-it-sup">Superscript</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-sub">Subscript</a>&nbsp;/&nbsp;<a href="https://github.com/markdown-it/markdown-it-sup">Superscript</a></h3>
 
 <ul>
-	<li>19^th^</li>
-	<li>H~2~O</li>
+	<li>19<sup>th</sup></li>
+	<li>H<sub>2</sub>O</li>
 </ul>
 
 <h3><a href="https://github.com/markdown-it/markdown-it-ins">&lt;ins&gt;</a></h3>
 
-<p>++Inserted text++</p>
+<p><ins>Inserted text</ins></p>
 
 <h3><a href="https://github.com/markdown-it/markdown-it-mark">&lt;mark&gt;</a></h3>
 
-<p>==Marked text==</p>
+<p>Marked text</p>
 
 <h3><a href="https://github.com/markdown-it/markdown-it-footnote">Footnotes</a></h3>
 
-<p>Footnote 1 link[^first].</p>
+<p>Footnote 1 link<sup><a href="https://markdown-it.github.io/#fn1" id="fnref1">[1]</a></sup>.</p>
 
-<p>Footnote 2 link[^second].</p>
+<p>Footnote 2 link<sup><a href="https://markdown-it.github.io/#fn2" id="fnref2">[2]</a></sup>.</p>
 
-<p>Inline footnote^[Text of inline footnote] definition.</p>
+<p>Inline footnote<sup><a href="https://markdown-it.github.io/#fn3" id="fnref3">[3]</a></sup>&nbsp;definition.</p>
 
-<p>Duplicated footnote reference[^second].</p>
-
-<p>[^first]: Footnote <strong>can have markup</strong></p>
-
-<p>and multiple paragraphs.</p>
-
-<p>[^second]: Footnote text.</p>
+<p>Duplicated footnote reference<sup><a href="https://markdown-it.github.io/#fn2" id="fnref2:1">[2:1]</a></sup>.</p>
 
 <h3><a href="https://github.com/markdown-it/markdown-it-deflist">Definition lists</a></h3>
 
 <p>Term 1</p>
 
-<p>: &nbsp; Definition 1<br />
-with lazy continuation.</p>
+<p>Definition 1 with lazy continuation.</p>
 
-<p>Term 2 with <em>inline markup</em></p>
+<p>Term 2 with&nbsp;<em>inline markup</em></p>
 
-<p>: &nbsp; Definition 2</p>
+<p>Definition 2</p>
 
-<p>{ some code, part of Definition 2 }</p>
+<pre>
+<code>  { some code, part of Definition 2 }
+</code></pre>
 
 <p>Third paragraph of definition 2.</p>
 
 <p><em>Compact style:</em></p>
 
-<p>Term 1<br />
-&nbsp; ~ Definition 1</p>
+<p>Term 1</p>
 
-<p>Term 2<br />
-&nbsp; ~ Definition 2a<br />
-&nbsp; ~ Definition 2b</p>
+<p>Definition 1</p>
+
+<p>Term 2</p>
+
+<p>Definition 2a</p>
+
+<p>Definition 2b</p>
 
 <h3><a href="https://github.com/markdown-it/markdown-it-abbr">Abbreviations</a></h3>
 
-<p>This is HTML abbreviation example.</p>
+<p>This is&nbsp;HTML&nbsp;abbreviation example.</p>
 
 <p>It converts &ldquo;HTML&rdquo;, but keep intact partial entries like &ldquo;xxxHTMLyyy&rdquo; and so on.</p>
 
-<p>*[HTML]: Hyper Text Markup Language</p>
-
 <h3><a href="https://github.com/markdown-it/markdown-it-container">Custom containers</a></h3>
 
-<p>::: warning<br />
-<em>here be dragons</em><br />
-:::</p>
+<p><em>here be dragons</em></p>
+
+<hr />
+<ol>
+	<li>
+	<p>Footnote&nbsp;<strong>can have markup</strong></p>
+
+	<p>and multiple paragraphs.&nbsp;<a href="https://markdown-it.github.io/#fnref1">↩︎</a></p>
+	</li>
+	<li>
+	<p>Footnote text.&nbsp;<a href="https://markdown-it.github.io/#fnref2">↩︎</a>&nbsp;<a href="https://markdown-it.github.io/#fnref2:1">↩︎</a></p>
+	</li>
+	<li>
+	<p>Text of inline footnote&nbsp;<a href="https://markdown-it.github.io/#fnref3">↩︎</a></p>
+	</li>
+</ol>
 
             </div>
 
