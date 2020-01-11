@@ -17,11 +17,11 @@
     <meta name="description" content="AiDoubleDot Blog" />
     
    
-     <title> Main Page | AiDoubleDot Blog </title>
+     <title> Home Page | AiDoubleDot Blog </title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous" />
 
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css" />
-     <link  href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet" />
+     <link  href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet" />
    
 
     <style>
@@ -107,7 +107,7 @@
         #mainNav .navbar-nav .nav-item .nav-link {
           font-size: 90%;
           font-weight: 400;
-          padding: 0.75em 0;
+          padding: 0.75em 1em;
           letter-spacing: 1px;
           color: white;
         }
@@ -172,7 +172,7 @@
               <div class="collapse navbar-collapse float-right " id="navbarResponsive">
                  <br /> <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item ">
-                      <a class="nav-link" href="http://aidoubledot.com/Blog">Blog</a>
+                      <a class="nav-link" href="http://aidoubledot.com/blog">Blog</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="/Link 2"> About </a>
@@ -218,10 +218,16 @@
         </div>
       </footer>
 
-    <script type="text/javascript" src="filesdata.json"></script>
-    <script type="text/javascript" src="pagination.js"></script>
+    <script src="blog/pagescript.js"></script>
+    <script src="blog/filesdata.json"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
     <script>
-        document.body.onload = populateData(filesdata); 
+       // $.getJSON("filesdata.json", function(json) {
+            document.body.onload = function(){ populateData( filesdata ) }; 
+        // }); 
+        
     </script>
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

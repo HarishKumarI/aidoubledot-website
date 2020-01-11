@@ -1,5 +1,4 @@
 function populateData(filelist){
-    
     const url = window.location.href;
     const noofarticles = 5;
     const pagination_limit = 5;
@@ -36,20 +35,21 @@ function populateData(filelist){
                 </div> `;
 
     const article_tag = `
-        <a href="<Link />">
-            <div class="row" >
+        <div class="row" >
                 <div class="col-md-1"></div>
                 <div class="col-md-3 thumbnail">
-                    <img src="<ImgSource />" />
+                    <img src="<ImgSource />" alt="Article Cover Page"/>
                 </div>
 
                 <div class="col-md-7 article">
-                    <h2><ArticleTitle /></h2>
-                    <p><Description /></p>
-                    <p class="published-date"><Dop /></p>
+                    <a href="<Link />">
+                        <h2><ArticleTitle /></h2>
+                        <p><Description /></p>
+                        <p class="published-date"><Dop /></p>
+                    </a>
                 </div>
-            </div>
-        </a>`;
+                <div class="col-md-1"></div>
+            </div>`;
 
 
     for (var a_i = 0; a_i< page_articles.length; a_i++){
@@ -57,8 +57,8 @@ function populateData(filelist){
         
         const article_detials = fileslist[page_articles[a_i]];
 
-        temp_article_tag = temp_article_tag.replace("<Link />",article_detials['Title']);
-        temp_article_tag = temp_article_tag.replace("<ImgSource />",article_detials['coverphoto']);
+        temp_article_tag = temp_article_tag.replace("<Link />",'Blog/'+article_detials['Title']+'/');
+        temp_article_tag = temp_article_tag.replace("<ImgSource />", 'Blog/'+article_detials['coverphoto']);
         temp_article_tag = temp_article_tag.replace("<ArticleTitle />",article_detials['Title']);
         temp_article_tag = temp_article_tag.replace("<Description />",article_detials['Descritpion']);
         temp_article_tag = temp_article_tag.replace("<Dop />",article_detials['Dop']);
@@ -92,4 +92,8 @@ function populateData(filelist){
         pagination.insertBefore(li_element , pagination.lastElementChild);
     }
 
+    if ( page_articles.length < 5 ){
+        var footer = document.getElementsByTagName("footer")[0];
+        footer.className = "py-4 text-white-50 fixed-bottom";
+    }
 }

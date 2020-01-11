@@ -6,7 +6,8 @@ from envparse import env
 import sys
 from datetime import date
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='Blog')
+
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/tsoai'
 #app.config['SQLALCHEMY_DATABASE_URI'] = env.str('DATABASE_URL')
 app.config['GAGTM_CODE'] = env.str('GAGTM_CODE')

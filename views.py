@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, flash,url_for,Response,send_from_directory, session
+from flask import render_template, request, redirect, flash,url_for,Response,send_from_directory, session, send_file
 from webapp import app
 import requests
 from models import *
@@ -14,60 +14,69 @@ captcha_site_key = "6Le24scUAAAAAKDFYZo2b1qkK_DAat3PyOZmiz5U"
 @app.route('/contact', methods=["POST"])
 def contact():
    
-    recaptcha_score = None
+  recaptcha_score = None
 
-    url = "https://www.google.com/recaptcha/api/siteverify";
+  url = "https://www.google.com/recaptcha/api/siteverify";
 
-    data = {
-        'secret': captcha_secret_key,
-        'response': request.form['token'],
-        'remoteip': request.access_route[0]
-    }
+  data = {
+      'secret': captcha_secret_key,
+      'response': request.form['token'],
+      'remoteip': request.access_route[0]
+  }
 
-    r = requests.post(
-        "https://www.google.com/recaptcha/api/siteverify",
-         data = data
-      )
+  r = requests.post(
+      "https://www.google.com/recaptcha/api/siteverify",
+       data = data
+    )
 
-    result = r.json()
+  result = r.json()
 
-    if result['success']:
-      recaptcha_score = result['score']
-    else:
-      recaptcha_score = 0
+  if result['success']:
+    recaptcha_score = result['score']
+  else:
+    recaptcha_score = 0
 
-    if recaptcha_score > 0.5:
-        try:
-          sendemail.send_details_to_contact(request.form['name'],request.form['phone'],
-          request.form['email'],request.form['company'],request.form['companyWebsite'],request.form['message'])
-          return Response('OK')
-        except:
-            exceptions(sys.exc_info())
-            return Response('NOT-OK')
-    else:
-        return Response('Captcha Failed')
+  if recaptcha_score > 0.5:
+      try:
+        sendemail.send_details_to_contact(request.form['name'],request.form['phone'],
+        request.form['email'],request.form['company'],request.form['companyWebsite'],request.form['message'])
+        return Response('OK')
+      except:
+          exceptions(sys.exc_info())
+          return Response('NOT-OK')
+  else:
+      return Response('Captcha Failed')
 
 
 @app.route('/tnc')
 def tnc():
-    return render_template('tnc.html')
+  return render_template('tnc.html')
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+  return render_template('index.html')
 
-@app.route('/Blog')
+@app.route('/blog')
 def blog():
-    return redirect('/Blog/')
+  return render_template('Blog_posts/index.html')
 
-@app.route('/Blog/')
-def blog1():
-    return render_template('./Blog/index.html')
+@app.route('/blog/<filename>')
+def articlegenneration(filename):
+    return render_template('Blog_posts/'+filename)
 
-@app.route('/Blog/<filename>')
-def article(filename):
-  # print(filename)
-  return render_template('./Blog/'+filename+'/index.html')
+@app.route('/Blog/<articelname>/coverimage')
+def coverphoto(articelname):
+  return send_file('./templates/Blog_posts/'+articelname+'/coverphoto.png', mimetype='image/gif')
+
+
+@app.route('/Blog/<articelname>/')
+def articlepage(articelname):
+  return render_template('Blog_posts/'+articelname+'/index.html')
+
+@app.route('/Blog/<articelname>/coverphoto')
+def articelcoverphoto(articelname):
+  return send_file('./templates/Blog_posts/'+articelname+'/coverphoto.png', mimetype='image/gif')
+
 
 @app.errorhandler(Exception)
 def exceptions(e):
