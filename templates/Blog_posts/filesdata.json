@@ -1,1 +1,1 @@
-var filesdata =  {'New Post': {'coverphoto': 'New Post/coverimage', 'Descritpion': 'Artilce Description', 'Title': 'New Post', 'Dop': 'Jan 12 2020'}}
+var filesdata =  {'markdown preview': {'coverphoto': 'markdown preview/coverimage', 'Descritpion': 'directly copied from markdown preview', 'Title': 'markdown preview', 'Dop': 'Jan 12 2020'}}
