@@ -1,365 +1,166 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charSet="utf-8" />
-  <link rel="shortcut icon" href="http://aidoubledot.com/static/img/logos/logo.ico"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="Description" content="Artilce Description" /> 
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charSet="utf-8" />
+            <link rel="shortcut icon" href="http://aidoubledot.com/static/img/logos/logo.ico"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="theme-color" content="#000000" />
+            <meta name="Description" content="Article Description" /> 
+            <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+           
+            <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous" />
 
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossOrigin="anonymous" />
+             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css" />
+             <link  href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet" />
+             <link rel="stylesheet" href="../../static/css/markdown.css">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css" />
-  <link  href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css" rel="stylesheet" />
+            <title> New Post | AiDoubleDot Blog</title>
+            <style>
 
-  <link rel="stylesheet" href="../../static/css/markdown.css">
+                footer, footer p{
+                    background-color: black;
+                    color:white;
+                }
 
-  <title> New Post | AiDoubleDot Blog</title>
-  <style>
+                a:link , a:visited , a:hover , a:active {
+                  color: white;
+                }
 
-    footer, footer p{
-      background-color: black;
-      color:white;
-    }
+                .navbar-expand-lg{
+                    -ms-flex-flow: row wrap !important;
+                    flex-flow: row wrap  !important;
+                    -ms-flex-pack: start;
+                }
 
-    a:link , a:visited , a:hover , a:active {
-      color: white;
-    }
+                .subtitle a, .subtitle a:active, .subtitle a:hover{
+                  color: white;
+                  text-decoration: none;
+                }
 
-    .navbar-expand-lg{
-      -ms-flex-flow: row wrap !important;
-      flex-flow: row wrap  !important;
-      -ms-flex-pack: start;
-    }
+                .subtitle a span{
+                    display: inline-block;
+                    line-height: 1.4em;
+                    vertical-align: bottom;
+                    width: 4em;
+                    color: #eeeeee;
+                    padding-left: 3px;
+                }
+                .subtitle div span{
+                    font-weight: 300;
+                    font-size: 0.80em;
+                    color: #eeeeee
+                }
 
-    .subtitle a, .subtitle a:active, .subtitle a:hover{
-      color: white;
-      text-decoration: none;
-    }
+                .logo-subtitle{
+                    padding-top: 5px;
+                }
 
-    .subtitle a span{
-      display: inline-block;
-      line-height: 1.4em;
-      vertical-align: bottom;
-      width: 4em;
-      color: #eeeeee;
-      padding-left: 3px;
-    }
-    .subtitle div span{
-      font-weight: 300;
-      font-size: 0.80em;
-      color: #eeeeee
-    }
+                #mainNav {
+                  background-color: #222;
+                }
 
-    .logo-subtitle{
-      padding-top: 5px;
-    }
+                #mainNav .navbar-toggler {
+                  font-size: 12px;
+                  right: 0;
+                  padding: 13px;
+                  text-transform: uppercase;
+                  color: white;
+                  border: 0;
+                  background-color: #fed136;
+                  /*font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';*/
+                  /*color: #212529;*/
+                }
 
-    #mainNav {
-      background-color: #222;
-    }
+                #mainNav .navbar-brand {
+                  color: #fed136;
+                }
 
-    #mainNav .navbar-toggler {
-      font-size: 12px;
-      right: 0;
-      padding: 13px;
-      text-transform: uppercase;
-      color: white;
-      border: 0;
-      background-color: #fed136;
-      /*font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';*/
-      /*color: #212529;*/
-    }
+                #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+                  color: #fec503;
+                }
 
-    #mainNav .navbar-brand {
-      color: #fed136;
-    }
+                #mainNav .subtitle img{
+                  height: 4em;
+                }
 
-    #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-      color: #fec503;
-    }
+                #mainNav .navbar-nav .nav-item .nav-link {
+                  font-size: 90%;
+                  font-weight: 400;
+                  padding: 0.75em 0;
+                  letter-spacing: 1px;
+                  color: white;
+                }
 
-    #mainNav .subtitle img{
-      height: 4em;
-    }
-
-    #mainNav .navbar-nav .nav-item .nav-link {
-      font-size: 90%;
-      font-weight: 400;
-      padding: 0.75em 0;
-      letter-spacing: 1px;
-      color: white;
-    }
-
-    .coverimage img{
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-
-  </style>
-
-</head>
-<body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
-    <div class="container ">
-      <span class="subtitle">
-        <a class="js-scroll-trigger" href="#page-top">
-          <img src="http://aidoubledot.com/static/img/logos/logo_main.png" alt="ai double dot"/>
-          <span>ai <br /> double dot</span>
-        </a>
-        <div class="logo-subtitle">
-          <span>just the AI lab you needed</span>
-        </div>
-      </span>
-
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-      aria-label="Toggle navigation">
-      Menu &nbsp;
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse float-right " id="navbarResponsive">
-     <br /> <ul class="navbar-nav text-uppercase ml-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="/Link 1">Link 1</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/Link 2">link two</a>
-      </li>
-    </ul>
-  </div>
-</div>
-
-</nav>
-
-<div class="coverimage" style="border-bottom: 1px solid rgba(0,0,0,0.2);"> 
-  <img  alt="cover_image" src="coverphoto" />
-</div>
-
-<div className="container" style="padding:10%;">
-  <hr>
-  <p><strong>Advertisement :)</strong></p>
-  <ul>
-    <li><strong><a href="https://nodeca.github.io/pica/demo/">pica</a></strong> - high quality and fast image<br>
-      resize in browser.</li>
-    <li><strong><a href="https://github.com/nodeca/babelfish/">babelfish</a></strong> - developer friendly<br>
-      i18n with plurals support and easy syntax.</li>
-  </ul>
-  <p>You will like those projects!</p>
-  <hr>
-  <h1>h1 Heading 8-)</h1>
-  <h2>h2 Heading</h2>
-  <h3>h3 Heading</h3>
-  <h4>h4 Heading</h4>
-  <h5>h5 Heading</h5>
-  <h6>h6 Heading</h6>
-  <h2>Horizontal Rules</h2>
-  <hr>
-  <hr>
-  <hr>
-  <h2>Typographic replacements</h2>
-  <p>Enable typographer option to see result.</p>
-  <p>© © ® ® ™ ™ § § ±</p>
-  <p>test… test… test… test?.. test!..</p>
-  <p>!!! ??? ,  – —</p>
-  <p>“Smartypants, double quotes” and ‘single quotes’</p>
-  <h2>Emphasis</h2>
-  <p><strong>This is bold text</strong></p>
-  <p><strong>This is bold text</strong></p>
-  <p><em>This is italic text</em></p>
-  <p><em>This is italic text</em></p>
-  <p><s>Strikethrough</s></p>
-  <h2>Blockquotes</h2>
-  <blockquote>
-    <p>Blockquotes can also be nested…</p>
-    <blockquote>
-      <p>…by using additional greater-than signs right next to each other…</p>
-      <blockquote>
-        <p>…or with spaces between arrows.</p>
-      </blockquote>
-    </blockquote>
-  </blockquote>
-  <h2>Lists</h2>
-  <p>Unordered</p>
-  <ul>
-    <li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li>
-    <li>Sub-lists are made by indenting 2 spaces:<br>
-        - Marker character change forces new list start:<br>
-          * Ac tristique libero volutpat at<br>
-          + Facilisis in pretium nisl aliquet<br>
-        - Nulla volutpat aliquam velit</li>
-    <li>Very easy!</li>
-  </ul>
-  <p>Ordered</p>
-  <ol>
-    <li>
-      <p>Lorem ipsum dolor sit amet</p>
-    </li>
-    <li>
-      <p>Consectetur adipiscing elit</p>
-    </li>
-    <li>
-      <p>Integer molestie lorem at massa</p>
-    </li>
-    <li>
-      <p>You can use sequential numbers…</p>
-    </li>
-    <li>
-      <p>…or keep all the numbers as <code>1.</code></p>
-    </li>
-  </ol>
-  <p>Start numbering with offset:</p>
-  <ol start="57">
-    <li>foo</li>
-    <li>bar</li>
-  </ol>
-  <h2>Code</h2>
-  <p>Inline <code>code</code></p>
-  <p>Indented code</p>
-  <p>// Some comments<br>
-        line 1 of code<br>
-        line 2 of code<br>
-      line 3 of code</p>
-  <p>Block code “fences”</p>
-  <pre><code>Sample text here...
-  </code></pre>
-  <p>Syntax highlighting</p>
-  <pre><code class="language-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">bar</span>) </span>{
-      <span class="hljs-keyword">return</span> bar++;
-  };
-
-  <span class="hljs-built_in">console</span>.log(foo(<span class="hljs-number">5</span>));
-</code></pre>
-<h2>Tables</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Option</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td>path to data files to supply the data that will be passed into templates.</td>
-    </tr>
-    <tr>
-      <td>engine</td>
-      <td>engine to be used for processing templates. Handlebars is the default.</td>
-    </tr>
-    <tr>
-      <td>ext</td>
-      <td>extension to be used for dest files.</td>
-    </tr>
-  </tbody>
-</table>
-<p>Right aligned columns</p>
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:right">Option</th>
-      <th style="text-align:right">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:right">data</td>
-      <td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
-    </tr>
-    <tr>
-      <td style="text-align:right">engine</td>
-      <td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
-    </tr>
-    <tr>
-      <td style="text-align:right">ext</td>
-      <td style="text-align:right">extension to be used for dest files.</td>
-    </tr>
-  </tbody>
-</table>
-<h2>Links</h2>
-<p><a href="http://dev.nodeca.com">link text</a></p>
-<p><a href="http://nodeca.github.io/pica/demo/" title="title text!">link with title</a></p>
-<p>Autoconverted link <a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
-<h2>Images</h2>
-<p><img src="https://octodex.github.com/images/minion.png" alt="Minion"><br>
-  <img src="https://octodex.github.com/images/stormtroopocat.jpg" alt="Stormtroopocat" title="The Stormtroopocat"></p>
-  <p>Like links, Images also have a footnote style syntax</p>
-  <p>![Alt text][id]</p>
-  <p>With a reference later in the document defining the URL location:</p>
-  <p>[id]: <a href="https://octodex.github.com/images/dojocat.jpg">https://octodex.github.com/images/dojocat.jpg</a>  “The Dojocat”</p>
-  <h2>Plugins</h2>
-  <p>The killer feature of <code>markdown-it</code> is very effective support of<br>
-    <a href="https://www.npmjs.org/browse/keyword/markdown-it-plugin">syntax plugins</a>.</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-emoji">Emojies</a></h3>
-    <blockquote>
-      <p>Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:</p>
-      <p>Shortcuts (emoticons): :-) :-( 8-) ;)</p>
-    </blockquote>
-    <p>see <a href="https://github.com/markdown-it/markdown-it-emoji#change-output">how to change output</a> with twemoji.</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-sub">Subscript</a> / <a href="https://github.com/markdown-it/markdown-it-sup">Superscript</a></h3>
-    <ul>
-      <li>19^th^</li>
-      <li>H~2~O</li>
-    </ul>
-    <h3><a href="https://github.com/markdown-it/markdown-it-ins">&lt;ins&gt;</a></h3>
-    <p>++Inserted text++</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-mark">&lt;mark&gt;</a></h3>
-    <p>==Marked text==</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-footnote">Footnotes</a></h3>
-    <p>Footnote 1 link[^first].</p>
-    <p>Footnote 2 link[^second].</p>
-    <p>Inline footnote^[Text of inline footnote] definition.</p>
-    <p>Duplicated footnote reference[^second].</p>
-    <p>[^first]: Footnote <strong>can have markup</strong></p>
-    <p>and multiple paragraphs.</p>
-    <p>[^second]: Footnote text.</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-deflist">Definition lists</a></h3>
-    <p>Term 1</p>
-    <p>:   Definition 1<br>
-    with lazy continuation.</p>
-    <p>Term 2 with <em>inline markup</em></p>
-    <p>:   Definition 2</p>
-    <p>{ some code, part of Definition 2 }</p>
-    <p>Third paragraph of definition 2.</p>
-    <p><em>Compact style:</em></p>
-    <p>Term 1<br>
-      ~ Definition 1</p>
-    <p>Term 2<br>
-        ~ Definition 2a<br>
-      ~ Definition 2b</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-abbr">Abbreviations</a></h3>
-    <p>This is HTML abbreviation example.</p>
-    <p>It converts “HTML”, but keep intact partial entries like “xxxHTMLyyy” and so on.</p>
-    <p>*[HTML]: Hyper Text Markup Language</p>
-    <h3><a href="https://github.com/markdown-it/markdown-it-container">Custom containers</a></h3>
-    <p>::: warning<br>
-      <em>here be dragons</em><br>
-    :::</p>
-
-  </div>
-
-  <footer class="py-4 text-white-50"  >
-    <div class="container text-center text-white">
-      <p>Copyright &copy; <a href="http://cognirel.com/"> Cognirel.com</a></p>
-    </div>
-  </footer>
+                .coverimage img{
+                  display: block;
+                    width: 100%;
+                    height: auto;
+                }
 
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+             </style>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossOrigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossOrigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossOrigin="anonymous"></script>
+          </head>
+          <body>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+              <div class="container ">
+                <span class="subtitle">
+                  <a class="js-scroll-trigger" href="#page-top">
+                    <img src="http://aidoubledot.com/static/img/logos/logo_main.png" alt="ai double dot"/>
+                      <span>ai <br /> double dot</span>
+                  </a>
+                  <div class="logo-subtitle">
+                    <span>just the AI lab you needed</span>
+                  </div>
+                </span>
 
-</body>
-</html>
+                  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                          data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                          aria-label="Toggle navigation">
+                           Menu &nbsp;
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse float-right " id="navbarResponsive">
+                     <br /> <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item ">
+                          <a class="nav-link" href="/Link 1">Link 1</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/Link 2">link two</a>
+                        </li>
+                      </ul>
+                  </div>
+              </div>
+
+          </nav>
+
+             <div class="coverimage" style="border-bottom: 1px solid rgba(0,0,0,0.2);"> 
+              <img  alt="cover_image" src="coverphoto" />
+            </div>
+            
+            <div className="container" style="padding:10%;">
+               Start Writing the post...
+            </div>
+
+             <footer class="py-4 text-white-50"  >
+                <div class="container text-center text-white">
+                  <p>Copyright &copy; <a href="http://cognirel.com/"> Cognirel.com</a></p>
+                </div>
+              </footer>
+
+
+            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossOrigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossOrigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossOrigin="anonymous"></script>
+
+            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+            <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+          </body>
+        </html>
