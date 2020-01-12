@@ -66,7 +66,7 @@ def articlegenneration(filename):
 
 @app.route('/Blog/<articelname>/coverimage')
 def coverphoto(articelname):
-  return send_file('./templates/Blog_posts/'+articelname+'/coverphoto.png', mimetype='image/gif')
+  return send_file('templates/Blog_posts/'+articelname+'/coverphoto.png', mimetype='image/gif')
 
 
 @app.route('/Blog/<articelname>/')
@@ -75,7 +75,7 @@ def articlepage(articelname):
 
 @app.route('/Blog/<articelname>/<imgname>')
 def articelcoverphoto(articelname, imgname):
-  return send_file('./templates/Blog_posts/'+articelname+'/'+imgname, mimetype='image/gif')
+  return send_file('templates/Blog_posts/'+articelname+'/'+imgname, mimetype='image/gif')
 
 
 @app.errorhandler(Exception)
