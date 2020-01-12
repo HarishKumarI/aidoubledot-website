@@ -1,1 +1,1 @@
-var filesdata =  {'markdown': {'coverphoto': 'markdown/coverimage', 'Descritpion': 'markdown converted and saved', 'Title': 'markdown', 'Dop': 'Jan 12 2020'}}
+var filesdata =  {'MarkDown': {'coverphoto': 'MarkDown/coverimage', 'Descritpion': 'MarkDown to HTML and save', 'Title': 'MarkDown', 'Dop': 'Jan 12 2020'}}

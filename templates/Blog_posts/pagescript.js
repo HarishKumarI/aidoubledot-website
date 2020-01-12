@@ -24,7 +24,9 @@ function populateData(filelist){
     else{
         page_articles = filestitles.slice((page - 1)*noofarticles , page*noofarticles );
     }
-                
+
+    console.log(page_articles);
+
     const line = `
                 <div class="row m-0" >
                         <div class="col-md-1"></div>
