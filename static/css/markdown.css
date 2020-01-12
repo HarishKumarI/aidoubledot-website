@@ -99,7 +99,7 @@ hr {
 
 /* Code below this line is copyright Twitter Inc. */
 
-button,
+/*button,*/
 input,
 select,
 textarea {
@@ -108,7 +108,8 @@ textarea {
   vertical-align: baseline;
   *vertical-align: middle;
 }
-button, input {
+
+/*button, input {
   line-height: normal;
   *overflow: visible;
 }
@@ -116,7 +117,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-button,
+button,*/
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -209,7 +210,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
 }
 
 /* buttons */
-button {
+/*button {
   display: inline-block;
   padding: 4px 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -254,6 +255,7 @@ button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
+*/
 
 ::-webkit-scrollbar {
   width: 5px;

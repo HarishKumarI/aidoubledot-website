@@ -73,9 +73,9 @@ def coverphoto(articelname):
 def articlepage(articelname):
   return render_template('Blog_posts/'+articelname+'/index.html')
 
-@app.route('/Blog/<articelname>/coverphoto')
-def articelcoverphoto(articelname):
-  return send_file('./templates/Blog_posts/'+articelname+'/coverphoto.png', mimetype='image/gif')
+@app.route('/Blog/<articelname>/<imgname>')
+def articelcoverphoto(articelname, imgname):
+  return send_file('./templates/Blog_posts/'+articelname+'/'+imgname, mimetype='image/gif')
 
 
 @app.errorhandler(Exception)
