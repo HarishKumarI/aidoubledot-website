@@ -6,7 +6,7 @@ SQLAlchemy==0.9.9
 Werkzeug==0.14.1
 argparse==1.2.1
 gunicorn==19.3.0
-ipython==3.1.0
+ipython==7.16.3
 itsdangerous==0.24
 razorpay==1.1.1
 flask-script
